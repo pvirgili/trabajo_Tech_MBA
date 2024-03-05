@@ -2,11 +2,11 @@ targetScope = 'subscription'
 
 @minLength(1)
 @maxLength(64)
-@description('Name of the the environment which is used to generate a short unique hash used in all resources.')
+@description('Nombre del entorno que se utiliza para generar un hash único y corto que se utiliza en todos los recursos.')
 param environmentName string
 
 @minLength(1)
-@description('Primary location for all resources')
+@description('Ubicación principal para todos los recursos.')
 param location string
 
 param resourceGroupName string = ''
@@ -25,7 +25,7 @@ param searchServiceName string = ''
 param searchServiceResourceGroupName string = ''
 param searchServiceLocation string = ''
 // The free tier does not support managed identity (required) or semantic search (optional)
-@allowed(['basic', 'standard', 'standard2', 'standard3', 'storage_optimized_l1', 'storage_optimized_l2'])
+@allowed(['basic', 'standard'])
 param searchServiceSkuName string
 param searchIndexName string
 
@@ -36,19 +36,12 @@ param storageContainerName string = 'content'
 param storageSkuName string
 
 param openAiServiceName string = ''
-param openAiResourceGroupName string = ''
-@description('Location for the OpenAI resource group')
-@allowed(['australiaeast', 'canadaeast', 'eastus', 'eastus2', 'francecentral', 'japaneast', 'northcentralus', 'swedencentral', 'switzerlandnorth', 'uksouth', 'westeurope'])
-@metadata({
-  azd: {
-    type: 'location'
-  }
-})
-param openAiResourceGroupLocation string
+param openAiResourceGroupName string = 'Clase-Viernes-15'
+param openAiResourceGroupLocation string = 'canadaeast'
 param openAiSkuName string = 'S0'
 
 @description('Location for the Static Web App')
-@allowed(['westus2', 'centralus', 'eastus2', 'westeurope', 'eastasia', 'eastasiastage'])
+@allowed(['westus2', 'centralus', 'eastus2'])
 @metadata({
   azd: {
     type: 'location'
@@ -56,11 +49,11 @@ param openAiSkuName string = 'S0'
 })
 param webAppLocation string
 
-param chatGptDeploymentName string // Set in main.parameters.json
+param chatGptDeploymentName string = 'gpt-35-turbo'
 param chatGptDeploymentCapacity int = 30
-param chatGptModelName string // Set in main.parameters.json
-param chatGptModelVersion string // Set in main.parameters.json
-param embeddingDeploymentName string = 'embedding'
+param chatGptModelName string = 'gpt-35-turbo'
+param chatGptModelVersion string = '0613'
+param embeddingDeploymentName string = 'text-embedding-ada-002'
 param embeddingDeploymentCapacity int = 30
 param embeddingModelName string = 'text-embedding-ada-002'
 

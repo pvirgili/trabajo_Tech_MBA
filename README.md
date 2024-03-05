@@ -17,15 +17,14 @@ description: A javascript sample app that chats with your data using OpenAI and 
 
 <!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
 
-# ChatGPT + Enterprise data with Azure OpenAI and Azure AI Search
+# Trabajo final: Tecnologías Digitales
 
-## Table of Contents
+## Tabla de Contenidos
 
-- [Features](#features)
+- [Funcionalidades](#funcionalidades)
 - [Getting started](#getting-started)
 - [Azure account requirements](#azure-account-requirements)
 - [Azure deployment](#azure-deployment)
-  - [Cost estimation](#cost-estimation)
   - [Project setup](#project-setup)
     - [GitHub Codespaces](#github-codespaces)
     - [VS Code Remote Containers](#vs-code-remote-containers)
@@ -50,43 +49,38 @@ description: A javascript sample app that chats with your data using OpenAI and 
 [![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=684521881&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json&location=WestUs2)
 [![Open in Remote - Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-javascript)
 
-This sample demonstrates a few approaches for creating ChatGPT-like experiences over your own data using the Retrieval Augmented Generation pattern. It uses Azure OpenAI Service to access the ChatGPT model (gpt-35-turbo), and Azure AI Search for data indexing and retrieval.
+Este ejemplo demuestra algunos enfoques para crear experiencias similares a ChatGPT a partir de sus propios datos utilizando el patrón de generación aumentada de recuperación (RAG en inglés). Utiliza el servicio Azure OpenAI para acceder al modelo ChatGPT (gpt-35-turbo) y Azure AI Search para la indexación y recuperación de datos.
 
-![Retrieval Augmented Generation Architecture](docs/rag-architecture.png)
+![Arquitectura RAG](docs/rag-architecture.png)
 
-The repo includes sample data so it's ready to try end to end. In this sample application we use a fictitious company called Contoso Real Estate, and the experience allows its customers to ask support questions about the usage of its products. The sample data includes a set of documents that describe its terms of service, privacy policy and a support guide.
+El repositorio incluye datos de muestra, por lo que está listo para probarse de principio a fin. En esta aplicación de ejemplo utilizamos una empresa ficticia llamada Contoso Real Estate y la experiencia permite a sus clientes hacer preguntas de soporte sobre el uso de sus productos. Los datos de muestra incluyen un conjunto de documentos que describen sus términos de servicio, política de privacidad y una guía de soporte.
 
-The application is made from multiple components, including:
+La aplicación está hecha de múltiples componentes, que incluyen:
 
-- **Search service**: the backend service that provides the search and retrieval capabilities.
-- **Indexer service**: the service that indexes the data and creates the search indexes.
-- **Web app**: the frontend web application that provides the user interface and orchestrates the interaction between the user and the backend services.
+- **Search service**: el servicio backend que proporciona las capacidades de búsqueda y recuperación.
+- **Indexer service**: el servicio que indexa los datos y crea los índices de búsqueda.
+- **Web app**: la aplicación web frontend que proporciona la interfaz de usuario y organiza la interacción entre el usuario y los servicios backend.
 
 ![App Architecture](docs/app-architecture.drawio.png)
 
-## Features
+## Funcionalidades
 
-- Chat and Q&A interfaces
-- Explores various options to help users evaluate the trustworthiness of responses with citations, tracking of source content, etc.
-- Shows possible approaches for data preparation, prompt construction, and orchestration of interaction between model (ChatGPT) and retriever (Azure AI Search)
-- Settings directly in the UX to tweak the behavior and experiment with options
-- Optional performance tracing and monitoring with Application Insights
+- Interfaces de chat y preguntas y respuestas.
+- Explora varias opciones para ayudar a los usuarios a evaluar la confiabilidad de las respuestas con citas, seguimiento del contenido fuente, etc.
+- Muestra posibles enfoques para la preparación de datos, la construcción rápida y la orquestación de la interacción entre el modelo (ChatGPT) y el recuperador (Azure AI Search).
+- Configuraciones directamente en la UX para modificar el comportamiento y experimentar con opciones
 
 ![Chat screen](docs/chat-screenshot.png)
 
-[📺 Watch a video overview of the app](https://youtu.be/uckVTuS36H0)
+[📺 Mirar un video sobre la aplicación (en inglés)](https://youtu.be/uckVTuS36H0)
 
-## Getting started
+## Comenzando....
 
-## Azure account prerequisites
+## Prerequisitos
 
-**IMPORTANT:** In order to deploy and run this sample, you'll need:
+- **Azure**. Acceso a la subscripción en Azure que vimos en las clases de Diciembre 2023. Recueden ingresear al [Portal](https://portal.azure.com) para revisar los componentes
+- **Azure OpenAI**. Ocuparemos los modelos actualmente disponibles en nuestra subscripción de Azure en el grupo de recursos Azure llamado "Clase-Viernes-15". Pueden experimentar con los modelos disponibles a través de [Azure AI Studio](https://oai.azure.com/)
 
-- **Azure account**. If you're new to Azure, [get an Azure account for free](https://azure.microsoft.com/free) to get free Azure credits to get started.
-- **Azure subscription with access enabled for the Azure OpenAI service**. You can request access with [this form](https://aka.ms/oaiapply).
-- **Azure account permissions**:
-  - Your Azure account must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [Role Based Access Control Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview), [User Access Administrator](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator), or [Owner](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#owner). If you don't have subscription-level permissions, they must be granted to you with [RBAC](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#role-based-access-control-administrator-preview) for an existing resource group and [deploy to that existing group](#existing-resource-group).
-  - Your Azure account also needs `Microsoft.Resources/deployments/write` permissions at a subscription level.
 
 ## Azure deployment
 
