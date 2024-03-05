@@ -10,9 +10,9 @@ products:
   - azure
   - ai-services
   - azure-openai
-urlFragment: azure-search-openai-javascript
-name: ChatGPT + Enterprise data (javascript)
-description: A javascript sample app that chats with your data using OpenAI and AI Search.
+urlFragment: trabajo_Tech_MBA
+name: Trabajo Tech MBA
+description: Un proyecto de ejemplo para utilizar las capacidades de Generative AI en sus proyectos del MBA.
 ---
 
 <!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
@@ -22,32 +22,18 @@ description: A javascript sample app that chats with your data using OpenAI and 
 ## Tabla de Contenidos
 
 - [Funcionalidades](#funcionalidades)
-- [Getting started](#getting-started)
-- [Azure account requirements](#azure-account-requirements)
-- [Azure deployment](#azure-deployment)
-  - [Project setup](#project-setup)
-    - [GitHub Codespaces](#github-codespaces)
-    - [VS Code Remote Containers](#vs-code-remote-containers)
-    - [Local environment](#local-environment)
-  - [Deploying from scratch](#deploying-from-scratch)
-  - [Deploying with existing resources](#deploying-with-existing-resources)
-  - [Deploying again](#deploying-again)
-- [Sharing environments](#sharing-environments)
-- [Enabling optional features](#enabling-optional-features)
-  <!-- - [Enabling Application Insights](#enabling-application-insights) -->
-  - [Enabling authentication](#enabling-authentication)
-- [Using the app](#using-the-app)
-- [Running locally](#running-locally)
-- [Using a different backend](#using-a-different-backend)
-- [Productionizing](#productionizing)
-- [Clean up](#clean-up)
-- [Resources](#resources)
-  - [Note](#note)
+- [Requerimientos de Azure](#prerequisitos)
+- [Deployment en Azure](#deployment-en-Azure)
+  - [Setup del proyecto](#setup-del-proyecto)
+    - [Requerimientos del ambiente local](#requerimientos-del-ambiente-local)
+  - [Instalando desde 0](#instalando-desde-0)
+  - [Instalando con recursos existentes](#instalando-con-recursos-existentes)
+- [Usando la aplicacion web](#usando-la-aplicacion-web)
+- [Limpieza](#limpieza)
+- [Recursos](#recursos)
+  - [Nota](#nota)
   - [FAQ](#faq)
   - [Troubleshooting](#troubleshooting)
-
-[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=684521881&machine=standardLinux32gb&devcontainer_path=.devcontainer%2Fdevcontainer.json&location=WestUs2)
-[![Open in Remote - Containers](https://img.shields.io/static/v1?style=for-the-badge&label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/azure-search-openai-javascript)
 
 Este ejemplo demuestra algunos enfoques para crear experiencias similares a ChatGPT a partir de sus propios datos utilizando el patrón de generación aumentada de recuperación (RAG en inglés). Utiliza el servicio Azure OpenAI para acceder al modelo ChatGPT (gpt-35-turbo) y Azure AI Search para la indexación y recuperación de datos.
 
@@ -73,8 +59,6 @@ La aplicación está hecha de múltiples componentes, que incluyen:
 ![Chat screen](docs/chat-screenshot.png)
 
 [📺 Mirar un video sobre la aplicación (en inglés)](https://youtu.be/uckVTuS36H0)
-
-## Comenzando....
 
 ## Prerequisitos
 
@@ -156,7 +140,7 @@ Si ha cambiado los archivos de infraestructura (carpeta `infra` o `azure.yaml`),
 `azd up`
 
 
-## Usando la Aplicación (app)
+## Usando la aplicacion web
 
 - En Azure: navegue hasta la aplicación web estática de Azure implementada por azd. La URL se imprime cuando se completa azd (como "Endpoint"), o puedes encontrarla en el Portal de Azure, dentro del grupo de recursos que se ha creado.
 
