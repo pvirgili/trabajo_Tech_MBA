@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
 
-name: azure-search-openai-javascript
+name: trabajo_Tech_MBA
 metadata:
-  template: azure-search-openai-javascript@1.0.0
+  template: trabajo-Tech-MBA@1.0.0
 
 services:
   webapp:

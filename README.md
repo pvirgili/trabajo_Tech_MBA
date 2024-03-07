@@ -161,13 +161,13 @@ Una vez en la aplicación web:
 
 ## Limpieza
 
-To clean up all the resources created by this sample:
+Para limpiar todos los recursos creados por este ejemplo:
 
-1. Run `azd down --purge`
-2. When asked if you are sure you want to continue, enter `y`
-3. When asked if you want to permanently delete the resources, enter `y`
+1. Ejecutar `azd down --purge`
+2. Cuando se le pregunte si está seguro de querer continuar, ingrese `y`
+3. Cuando se le pregunte si desea eliminar permanentemente los recursos, ingrese `y`
 
-The resource group and all the resources will be deleted.
+Se eliminarán el grupo de recursos y todos los recursos.
 
 ### Nota
 
