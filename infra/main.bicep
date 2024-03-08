@@ -36,8 +36,8 @@ param storageContainerName string = 'content'
 param storageSkuName string
 
 param openAiServiceName string = ''
-param openAiResourceGroupName string = 'Clase-Viernes-15'
-param openAiResourceGroupLocation string = 'canadaeast'
+param openAiResourceGroupName string = ''
+param openAiResourceGroupLocation string = ''
 param openAiSkuName string = 'S0'
 
 @description('Location for the Static Web App')
