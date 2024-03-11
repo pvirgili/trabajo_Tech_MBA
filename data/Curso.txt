@@ -1,0 +1,3 @@
+Universidad: Universidad Andrés Bello
+Curso: Tecnologías Digitales
+Profesores: Benjamín Cárcamo (bcarcamo@microsoft.com) y Patrizzio Virgili (patrizzio.virgili@microsoft.com)
