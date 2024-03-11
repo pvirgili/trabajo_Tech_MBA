@@ -10,7 +10,7 @@ import {
 } from './approach.js';
 import { ApproachBase } from './approach-base.js';
 
-const SYSTEM_CHAT_TEMPLATE = `You are an intelligent assistant helping Consto Real Estate company customers with support questions regarding terms of service, privacy policy, and questions about support requests.
+const SYSTEM_CHAT_TEMPLATE = `You are an intelligent assistant helping users with questions regarding information about their projects. You must be friendly but professional and all communications should be in Spanish.
 Use 'you' to refer to the individual asking the questions even if they ask with 'I'.
 Answer the following question using only the data provided in the sources below.
 For tabular information return it as an html table. Do not return markdown format.
