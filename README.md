@@ -23,12 +23,14 @@ description: Un proyecto de ejemplo para utilizar las capacidades de Generative 
 
 - [Funcionalidades](#funcionalidades)
 - [Requerimientos de Azure](#prerequisitos)
+- [Usando tus propios datos](#usando-tus-propios-datos)
 - [Deployment en Azure](#deployment-en-Azure)
   - [Setup del proyecto](#setup-del-proyecto)
     - [Requerimientos del ambiente local](#requerimientos-del-ambiente-local)
   - [Instalando desde 0](#instalando-desde-0)
   - [Instalando con recursos existentes](#instalando-con-recursos-existentes)
 - [Usando la aplicacion web](#usando-la-aplicacion-web)
+- [Adaptando la interfaz grafica](#adaptando-la-interfaz-grafica)
 - [Limpieza](#limpieza)
 - [Recursos](#recursos)
   - [Nota](#nota)
@@ -65,11 +67,13 @@ La aplicación está hecha de múltiples componentes, que incluyen:
 - **Azure**. Acceso a la subscripción en Azure que vimos en las clases de Diciembre 2023. Recueden ingresear al [Portal](https://portal.azure.com) para revisar los componentes
 - **Azure OpenAI**. Ocuparemos los modelos actualmente disponibles en nuestra subscripción de Azure en el grupo de recursos Azure llamado "Clase-Viernes-15". Pueden experimentar con los modelos disponibles a través de [Azure AI Studio](https://oai.azure.com/)
 
+## Usando tus propios datos
+
+La aplicación está diseñada para trabajar con cualquier archivo PDF. Estos se deben de agegar a la carpeta data del proyecto antes de comenzar a hacer el proceso de Deploy en Azure (a continuación)
 
 ## Deployment en Azure
 
 ### Setup del proyecto
-
 
 #### Requerimientos del ambiente local
 
@@ -80,7 +84,6 @@ La aplicación está hecha de múltiples componentes, que incluyen:
 - [Powershell 7+ (pwsh)](https://github.com/powershell/powershell) - Sólo para usuarios de Windows.
   - **Importante**: Asegúrate de que puedes ejecutar `pwsh.exe` desde un comando en PowerShell. Si esto falla, probablemente se necesite actualizar PowerShell.
 
-
 ### Instalando desde 0
 
 Ejecute el siguiente comando si no tiene ningún servicio de Azure preexistente y desea comenzar desde una implementación nueva.
@@ -88,9 +91,9 @@ Ejecute el siguiente comando si no tiene ningún servicio de Azure preexistente 
 1. Ejecutar `azd up` - Esto aprovisionará recursos de Azure e implementará esta muestra en esos recursos, incluida la creación del índice de búsqueda basado en los archivos que se encuentran en la carpeta `./data`.
    - Se le pedirá que seleccione una ubicación para la mayoría de los recursos, excepto los recursos de OpenAI y Static Web App.
    - De forma predeterminada, el recurso OpenAI se implementará en `eastus2`. Puede establecer una ubicación diferente con `azd env set AZURE_OPENAI_RESOURCE_GROUP_LOCATION {ubicacion}`. Actualmente sólo se acepta una breve lista de ubicaciones. Esa lista de ubicaciones se basa en la [tabla de disponibiliadd de modelos de OpenAI](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search) y puede quedar obsoleto a medida que cambia la disponibilidad.
-   -De forma predeterminada, el recurso de la aplicación web estática se implementará en `eastus2`. Puede establecer una ubicación diferente con `azd env set AZURE_WEBAPP_LOCATION {ubicacion}`. Actualmente sólo se acepta una breve lista de ubicaciones. Tenga en cuenta que la aplicación web estática es un servicio global y la ubicación que elija solo afectará a la aplicación de funciones administrada que no se utiliza en este ejemplo.
+     -De forma predeterminada, el recurso de la aplicación web estática se implementará en `eastus2`. Puede establecer una ubicación diferente con `azd env set AZURE_WEBAPP_LOCATION {ubicacion}`. Actualmente sólo se acepta una breve lista de ubicaciones. Tenga en cuenta que la aplicación web estática es un servicio global y la ubicación que elija solo afectará a la aplicación de funciones administrada que no se utiliza en este ejemplo.
 2. Una vez que la aplicación se haya implementado correctamente, verá una URL impresa en la consola. Haga clic en esa URL para interactuar con la aplicación en su navegador.
-Se verá como esto:
+   Se verá como esto:
 
 !['Salida luego de ejecutar azd up'](docs/deployment.png)
 
@@ -139,7 +142,6 @@ Si ha cambiado los archivos de infraestructura (carpeta `infra` o `azure.yaml`),
 
 `azd up`
 
-
 ## Usando la aplicacion web
 
 - En Azure: navegue hasta la aplicación web estática de Azure implementada por azd. La URL se imprime cuando se completa azd (como "Endpoint"), o puedes encontrarla en el Portal de Azure, dentro del grupo de recursos que se ha creado.
@@ -150,6 +152,14 @@ Una vez en la aplicación web:
 - Explorar citas y fuentes.
 - Haga clic en "configuración" para probar diferentes opciones, modificar indicaciones (prompts), etc.
 
+## Adaptando la interfaz grafica
+
+La interfáz gráfica (frontend) está construida usando [React](https://reactjs.org/) y [componentes Fluent UI](https://react.fluentui.dev/). Los componentes de la interfáz gráfica están en la carpeta `app/frontend/src`. Los típicos componentes a adaptar son
+
+- `app/frontend/index.html`: Título de la página
+- `app/frontend/src/pages/layout/Layout.tsx`: Cambios de encabezado y logo
+- `app/frontend/src/pages/chat/Chat.tsx`: Cambios en la forma del chat
+- `app/frontend/src/components/Example/ExampleList.tsx`: mdificar las preguntas de ejemplo
 
 ## Recursos
 
