@@ -156,10 +156,10 @@ Una vez en la aplicación web:
 
 La interfáz gráfica (frontend) está construida usando [React](https://reactjs.org/) y [componentes Fluent UI](https://react.fluentui.dev/). Los componentes de la interfáz gráfica están en la carpeta `app/frontend/src`. Los típicos componentes a adaptar son
 
-- `app/frontend/index.html`: Título de la página
-- `app/frontend/src/pages/layout/Layout.tsx`: Cambios de encabezado y logo
-- `app/frontend/src/pages/chat/Chat.tsx`: Cambios en la forma del chat
-- `app/frontend/src/components/Example/ExampleList.tsx`: mdificar las preguntas de ejemplo
+- `packages/webapp/index.html`: Título de la página
+- `packages/webapp/src/pages/layout/Layout.tsx`: Cambios de encabezado y logo
+- `packages/webapp/src/pages/chat/Chat.tsx`: Cambios en la forma del chat
+- `packages/chat-component/src/config/global-config.js`: Configuraciones generales del chat. También están las preguntas ahí.
 
 ## Recursos
 
